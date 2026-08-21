@@ -78,6 +78,14 @@ padding:16px 18px;font-size:17px;color:#6B4A1F;max-width:37em}
 .card .off{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:17px;color:var(--ink-3)}
 .card .cta{margin-top:20px}
 
+.map{margin-top:14px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
+.map-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+min-height:150px;border:0;background:var(--surface);cursor:pointer;padding:24px;
+font:inherit;font-size:19px;font-weight:700;color:var(--ink);text-align:center;flex-direction:column}
+.map-btn span{font-size:15px;font-weight:400;color:var(--ink-3);max-width:30em;line-height:1.5}
+.map-btn:hover{background:var(--warm)}
+.map iframe{display:block;width:100%;height:340px;border:0}
+
 .final{background:var(--ink);border-radius:18px;padding:46px 26px;text-align:center;margin:56px 0}
 .final h2{color:#fff;margin-bottom:12px}
 .final p{color:#B8AEA4;font-size:18px;max-width:26em;margin:0 auto 26px}
@@ -141,6 +149,15 @@ footer{padding:26px 0 48px;text-align:center;color:var(--ink-3);font-size:15px}
         <p class="off">Closed: Friday</p>
       </div>
     </div>
+
+    <!-- 点了才加载地图。整页只有 12KB、零外部请求，是为吉兰丹的手机网络做的；
+         Google 地图 iframe 要拉 1-2MB，不该让每个只想按 WhatsApp 的人替它买单。 -->
+    <div class="map">
+      <button class="map-btn" type="button" data-map="https://www.google.com/maps/embed?pb=!1m2!2m1!1s1837+Jalan+Sultanah+Zainab%2C+15000+Kota+Bharu%2C+Kelantan">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Show Map
+        <span>The map only loads when you tap it — so this page opens fast.</span>
+      </button>
+    </div>
   </section>
 
   <div class="final">
@@ -153,5 +170,18 @@ footer{padding:26px 0 48px;text-align:center;color:var(--ink-3);font-size:15px}
 
   <footer>Tukang Gigi Cheong Hing · Kota Bharu, Kelantan</footer>
 </div>
+<script>
+// 点一下才把 iframe 建出来。在此之前浏览器不会向 Google 发任何请求 ——
+// 这既是速度，也是隐私：没点地图的访客，Google 不知道他来过。
+document.querySelector('.map-btn').addEventListener('click', function () {
+  var f = document.createElement('iframe');
+  f.src = this.dataset.map;
+  f.loading = 'lazy';
+  f.title = "Tukang Gigi Cheong Hing — 1837 Jalan Sultanah Zainab, 15000 Kota Bharu, Kelantan";
+  f.referrerPolicy = 'no-referrer-when-downgrade';
+  f.allowFullscreen = true;
+  this.replaceWith(f);
+});
+</script>
 </body>
 </html>
