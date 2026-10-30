@@ -11,12 +11,23 @@
 <meta property="og:title" content="Tukang Gigi Cheong Hing — 哥打峇鲁手工镶牙，1950 年至今">
 <meta property="og:description" content="哥打峇鲁传统镶牙，1950 年创立，现由第四代传承。全口/局部活动假牙、维修、加牙。WhatsApp 免费咨询报价。">
 <meta property="og:url" content="https://gigibook.online/zh/">
-<meta name="theme-color" content="#FAF7F2">
+<meta name="theme-color" content="#0B4A20">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:image" content="https://gigibook.online/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#FAF7F2;--surface:#fff;--ink:#1A1614;--ink-2:#5A524C;--ink-3:#8A8078;
-  --brand:#0D9488;--accent:#9A6B2F;--line:#E8E1D7;--warm:#FBF3E4;--warm-line:#E3D5BE;
+  /* 配色直接取自招牌 logo：深绿 + 金。
+     原来那套青绿（#0D9488）和 logo 的绿放在一起会打架。
+     金和弱文字都往暗处压过，确保 4.5 的对比度 ——
+     读者是 50-80 岁的长者，而且多半在阳光下看手机。 */
+  --bg:#FAF7F2;--surface:#fff;--ink:#1A1614;--ink-2:#5A524C;--ink-3:#797069;
+  --brand:#0B4A20;--brand-dark:#073515;--accent:#9A6200;
+  --line:#E8E1D7;--warm:#FBF3E4;--warm-line:#E3D5BE;
 }
 html{-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--ink);
@@ -24,15 +35,14 @@ font:18px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neu
 .wrap{max-width:960px;margin:0 auto;padding:0 20px}
 a{color:inherit}
 
-.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;flex-wrap:wrap}
-.brand{font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
-.brand span{display:block;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.14em;text-transform:uppercase}
+.top{display:flex;align-items:center;justify-content:flex-end;gap:12px;padding:14px 0}
 .langs{display:flex;gap:6px}
 .langs a{min-height:40px;padding:0 13px;display:flex;align-items:center;border:1px solid var(--line);
 border-radius:8px;background:#fff;color:var(--ink-2);text-decoration:none;font-size:15px;font-weight:600}
 .langs a.on{background:var(--ink);border-color:var(--ink);color:#fff}
 
-.hero{padding:34px 0 46px}
+.logo{display:block;width:min(230px,52vw);height:auto;margin:0 0 6px}
+.hero{padding:26px 0 46px}
 .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
 color:var(--accent);border:1px solid var(--warm-line);background:var(--warm);border-radius:999px;padding:8px 15px}
 h1{margin-top:22px;font-size:clamp(38px,10vw,72px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
@@ -86,7 +96,7 @@ font:inherit;font-size:19px;font-weight:700;color:var(--ink);text-align:center;f
 .map-btn:hover{background:var(--warm)}
 .map iframe{display:block;width:100%;height:340px;border:0}
 
-.final{background:var(--ink);border-radius:18px;padding:46px 26px;text-align:center;margin:56px 0}
+.final{background:var(--brand-dark);border-radius:18px;padding:46px 26px;text-align:center;margin:56px 0}
 .final h2{color:#fff;margin-bottom:12px}
 .final p{color:#B8AEA4;font-size:18px;max-width:26em;margin:0 auto 26px}
 footer{padding:26px 0 48px;text-align:center;color:var(--ink-3);font-size:15px}
@@ -100,11 +110,14 @@ footer{padding:26px 0 48px;text-align:center;color:var(--ink-3);font-size:15px}
 <div class="wrap">
 
   <header class="top">
-    <div class="brand"><span>Sejak 1950</span>Tukang Gigi Cheong Hing</div>
     <nav class="langs" aria-label="Bahasa / Language / 语言"><a href="/" hreflang="ms">BM</a><a href="/en/" hreflang="en">EN</a><a href="/zh/" class="on" hreflang="zh">中文</a></nav>
   </header>
 
   <div class="hero">
+    <!-- 招牌本身就是最强的信任信号：顾客认得这个门面。
+         宽高写死，避免图片载入时把下面的文字顶下去。 -->
+    <img class="logo" src="/assets/logo.png" width="440" height="407"
+         alt="Tukang Gigi Cheong Hing" fetchpriority="high">
     <span class="eyebrow">1950 年创立 · 第四代</span>
     <h1>一副一副 <em>手工做出来。</em></h1>
     <p>在哥打峇鲁做了七十多年。每一副假牙，都靠四代传下来的手艺，一点一点做出来。</p>
